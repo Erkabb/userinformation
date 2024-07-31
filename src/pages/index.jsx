@@ -85,7 +85,7 @@ export default function Home() {
           className="border border-rounded"
           onClick={() => {
             console.log("clear");
-            setUser = null;
+            // setUser()=null;
           }}
         >
           clear
@@ -94,6 +94,7 @@ export default function Home() {
           className="border border-rounded"
           onClick={() => {
             console.log("view");
+            setUser(profiles);
           }}
         >
           view
