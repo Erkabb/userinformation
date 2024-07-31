@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-const Input = () => {
-  const [searchName, setSearchName] = useState("");
-  const handleCHange = (e) => {
-    console.log(e.target.value);
-    setSearchName(e.target.value);
+const Input = ({ handleChange }) => {
+  // const [searchName, setSearchName] = useState("");
+  const changeVal = (e) => {
+    handleChange(e.target.value);
   };
   return (
     <>
@@ -12,9 +11,8 @@ const Input = () => {
       <input
         type="text"
         className=" border border-solid border-black"
-        onChange={handleCHange}
+        onChange={changeVal}
       />
-      <p>Search value:{searchName}</p>
     </>
   );
 };

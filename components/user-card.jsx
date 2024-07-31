@@ -1,12 +1,11 @@
 import React from "react";
 
-const Usercard = (userimg, firstname) => {
+const Usercard = ({ userImg, firstName }) => {
   return (
-    <div>
-      <img src={userimg} className="w-10 h-10 rounded-full" alt="" />
+    <div className="w-72 h-20 flex">
+      <img src={userImg} className="w-10 h-10 rounded-full" alt="" />
       <div>
-        <h1>{name}</h1>
-        <p>{position}</p>
+        <h1>{firstName}</h1>
       </div>
     </div>
   );
