@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Input from "../../components/input";
 import Usercard from "../../components/user-card";
+import { MdOutlineClear } from "react-icons/md";
+import { GrFormViewHide } from "react-icons/gr";
 
 const profiles = [
   {
@@ -70,35 +72,39 @@ export default function Home() {
     },
   ]);
   const handleChange = (text) => {
-    setSearchName(text``);
+    setSearchName(text);
     const findUser = profiles.filter((user) => user.firstName.includes(text));
     setUser(findUser);
   };
 
   return (
-    <main className="flex flex-col items-center">
-      <h1>User find app</h1>
-      <div>
-        <Input handleChange={handleChange} />
-        <p>Search value:{searchName}</p>
-        <button
-          className="border border-rounded"
-          onClick={() => {
-            console.log("clear");
-            // setUser()=null;
-          }}
-        >
-          clear
-        </button>
-        <button
-          className="border border-rounded"
-          onClick={() => {
-            console.log("view");
-            setUser(profiles);
-          }}
-        >
-          view
-        </button>
+    <main className="flex flex-col items-center gap-10">
+      <h1 className="w-80 h-5 bg-slate-600 shadow-md shadow-black text-center mt-20 rounded">
+        User find app
+      </h1>
+      <div className="">
+        <div className="flex">
+          <Input handleChange={handleChange} />{" "}
+          <p className="text-gray-200">{searchName}</p>
+          <button
+            className="border-none"
+            onClick={() => {
+              console.log("clear");
+              setUser(null);
+            }}
+          >
+            <MdOutlineClear />
+          </button>
+          <button
+            className="border-none px-5"
+            onClick={() => {
+              console.log("view");
+              setUser(profiles);
+            }}
+          >
+            <GrFormViewHide />
+          </button>
+        </div>
         {users?.map((user) => {
           return (
             <Usercard userImg={user.imageUrl} firstName={user.firstName} />
