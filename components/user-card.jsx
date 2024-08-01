@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineClear } from "react-icons/md";
 
-const Usercard = ({ userImg, firstName }) => {
+const Usercard = ({ userImg, firstName, userID, deleteUser }) => {
   return (
     <div className="w-72 h-28 flex items-center border border-solid border-black rounded-md mt-20">
       <img src={userImg} alt="" />
@@ -9,7 +9,10 @@ const Usercard = ({ userImg, firstName }) => {
         <h1 className="">{firstName}</h1>
         <button>
           {" "}
-          <MdOutlineClear className="group-hover:font-semibold" />
+          <MdOutlineClear
+            className="group-hover:font-semibold"
+            onClick={() => deleteUser(userID)}
+          />
         </button>
       </div>
     </div>

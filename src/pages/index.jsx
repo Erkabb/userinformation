@@ -76,6 +76,10 @@ export default function Home() {
     const findUser = profiles.filter((user) => user.firstName.includes(text));
     setUser(findUser);
   };
+  const deleteUser = (userID) => {
+    const deletedUser = users.filter((user) => user.id !== userID);
+    setUser(deletedUser);
+  };
 
   return (
     <main className="flex flex-col items-center gap-10">
@@ -107,7 +111,12 @@ export default function Home() {
         </div>
         {users?.map((user) => {
           return (
-            <Usercard userImg={user.imageUrl} firstName={user.firstName} />
+            <Usercard
+              userImg={user.imageUrl}
+              firstName={user.firstName}
+              userID={user.id}
+              deleteUser={deleteUser}
+            />
           );
         })}
         {!users && <p>Empty</p>}
